@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+    id="frag01"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="sync.zdcppr4010.controller.View1"
+    height="100%"
+>
+    <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="planHSet" persistencyKey="SmartFilter_Explored">
+        <smartFilterBar:controlConfiguration>
+            <smartFilterBar:ControlConfiguration key="Fertid">
+                <smartFilterBar:defaultFilterValues>
+                    <smartFilterBar:SelectOption low="7001" />
+                </smartFilterBar:defaultFilterValues>
+            </smartFilterBar:ControlConfiguration>
+        </smartFilterBar:controlConfiguration>
+    </smartFilterBar:SmartFilterBar>
+
+    <smartTable:SmartTable
+        entitySet="planHSet"
+        useExportToExcel="true"
+        beforeExport="onBeforeExport"
+        useVariantManagement="true"
+        useTablePersonalisation="true"
+        header="생산계획정보"
+        showRowCount="true"
+        persistencyKey="SmartTableRefApp_Explored"
+        enableAutoBinding="true"
+        class="sapUiResponsiveContentPadding"
+        tableType="ResponsiveTable"
+        demandPopin="true"
+        enableAutoColumnWidth="true"
+        showPasteButton="true"
+        paste="onPaste"
+    >
+        <Table id="idConnTable" items="{/planHSet}" growing="true" growingThreshold="10">
+            <columns>
+                <Column id="colPorderid">
+                    <header>
+                        <Text id="txtPoid" text="생산계획코드" />
+                    </header>
+                </Column>
+                <Column id="colPverid">
+                    <header>
+                        <Text id="txtPverid" text="생산버전코드" />
+                    </header>
+                </Column>
+                <Column id="colFertid">
+                    <header>
+                        <Text id="txtFertid" text="제품명" />
+                    </header>
+                </Column>
+                <Column id="colWgoalstd">
+                    <header>
+                        <Text id="txtWgoalstd" text="목표생산량" />
+                    </header>
+                </Column>
+                <Column id="colPosdate">
+                    <header>
+                        <Text id="txtPosdate" text="생산시작일" />
+                    </header>
+                </Column>
+                <Column id="colPoedate">
+                    <header>
+                        <Text id="txtPoedate" text="생산종료일" />
+                    </header>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem id="colLisItm">
+                    <cells>
+                        <Text text="{Porderid}" />
+                        <Text text="{Pverid}" />
+                        <Text text="{Fertid}" />
+                        <Text text="{Wgoalstd}" />
+                        <Text text="{Posdate}" />
+                        <Text text="{Poedate}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <smartTable:layoutData>
+            <FlexItemData growFactor="1" baseSize="0%" />
+        </smartTable:layoutData>
+    </smartTable:SmartTable>
+</core:FragmentDefinition>
