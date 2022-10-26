@@ -10,7 +10,7 @@
     controllerName="sync.zdcppr4010.controller.View1"
     height="100%"
 >
-    <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="planHSet" persistencyKey="SmartFilter_Explored">
+    <!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="planHSet" persistencyKey="SmartFilter_Explored" enableAutoBinding="true">
         <smartFilterBar:controlConfiguration>
             <smartFilterBar:ControlConfiguration key="Fertid">
                 <smartFilterBar:defaultFilterValues>
@@ -18,7 +18,17 @@
                 </smartFilterBar:defaultFilterValues>
             </smartFilterBar:ControlConfiguration>
         </smartFilterBar:controlConfiguration>
-    </smartFilterBar:SmartFilterBar>
+    </smartFilterBar:SmartFilterBar> -->
+
+
+		<smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="SmartTableRefApp_Explored"
+			considerSelectionVariants="true" entitySet="planHSet" enableBasicSearch="true" basicSearchFieldName="Fertid" showClearButton="true" liveMode="true">
+			<!-- layout data used to make the table growing but the filter bar fixed -->
+			<smartFilterBar:layoutData>
+				<FlexItemData shrinkFactor="0"/>
+			</smartFilterBar:layoutData>
+
+		</smartFilterBar:SmartFilterBar>
 
     <smartTable:SmartTable
         entitySet="planHSet"
@@ -29,6 +39,7 @@
         header="생산계획정보"
         showRowCount="true"
         persistencyKey="SmartTableRefApp_Explored"
+        initiallyVisibleFields="Porderid,Pverid,Fertid,Wgoalstd,Unit,Wcenid,Posdate,Poedate,Sflag"
         enableAutoBinding="true"
         class="sapUiResponsiveContentPadding"
         tableType="ResponsiveTable"
@@ -36,54 +47,8 @@
         enableAutoColumnWidth="true"
         showPasteButton="true"
         paste="onPaste"
+        enableCustomFilter="true"
     >
-        <Table id="idConnTable" items="{/planHSet}" growing="true" growingThreshold="10">
-            <columns>
-                <Column id="colPorderid">
-                    <header>
-                        <Text id="txtPoid" text="생산계획코드" />
-                    </header>
-                </Column>
-                <Column id="colPverid">
-                    <header>
-                        <Text id="txtPverid" text="생산버전코드" />
-                    </header>
-                </Column>
-                <Column id="colFertid">
-                    <header>
-                        <Text id="txtFertid" text="제품명" />
-                    </header>
-                </Column>
-                <Column id="colWgoalstd">
-                    <header>
-                        <Text id="txtWgoalstd" text="목표생산량" />
-                    </header>
-                </Column>
-                <Column id="colPosdate">
-                    <header>
-                        <Text id="txtPosdate" text="생산시작일" />
-                    </header>
-                </Column>
-                <Column id="colPoedate">
-                    <header>
-                        <Text id="txtPoedate" text="생산종료일" />
-                    </header>
-                </Column>
-            </columns>
-
-            <items>
-                <ColumnListItem id="colLisItm">
-                    <cells>
-                        <Text text="{Porderid}" />
-                        <Text text="{Pverid}" />
-                        <Text text="{Fertid}" />
-                        <Text text="{Wgoalstd}" />
-                        <Text text="{Posdate}" />
-                        <Text text="{Poedate}" />
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
         <smartTable:layoutData>
             <FlexItemData growFactor="1" baseSize="0%" />
         </smartTable:layoutData>
