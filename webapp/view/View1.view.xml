@@ -2,12 +2,8 @@
     <Page id="page" title="생산계획 조회·수정">
         <l:VerticalLayout id="idHori">
             <VBox width="100%">
-                <core:Fragment 
-                    id="tableFrag" 
-                    fragmentName="sync.zdcppr4010.view.tableFrag" 
-                    type="XML" />
+                <core:Fragment id="tableFrag" fragmentName="sync.zdcppr4010.view.tableFrag" type="XML" />
             </VBox>
-            
         </l:VerticalLayout>
     </Page>
 </mvc:View>
