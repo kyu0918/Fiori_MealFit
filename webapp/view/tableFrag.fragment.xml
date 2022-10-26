@@ -52,6 +52,8 @@
                     placeToolbarInTable="true"
                     width="auto"
                     showDetailsButton="true"
+                    app:useSmartToggle="true"
+                    showFullScreenButton="true" 
                 >
                     <smartTable:layoutData>
                         <FlexItemData growFactor="0" baseSize="0%" />
