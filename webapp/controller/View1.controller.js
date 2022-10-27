@@ -19,6 +19,38 @@ sap.ui.define(
         oView.setModel(oModel);
       },
 
+      onRowPress: function() {
+        var sPath = oEvent.getParameter("rowContext").getPath();
+        this._sPath = sPath;
+
+        var oSelectedRow = oTable.getBinding("rows").getModel().getProperty(sPath);
+        var sCreateKey = oModel.createKey('/planHSet',{
+            Porderid: oSelectedRow.Porderid
+        });
+
+        var aFilter=[];
+        aFilter.push(
+            new Filter('Porderid',"EQ", oSelectedRow.Porderid)
+        )
+
+        oModel.read(sCreateKey, {
+            filters:aFilter,
+            success: function(data) { 
+                var aplanISet = data;
+                oItemTable.setModel( new JSONModel(aplanISet) , 'planISet' );
+                oItemTable
+                    .getBinding('rows')
+                    .filter(
+                        aFilter
+                    )
+            }.bind(this),
+            error: function() {
+
+            }
+        })
+
+      },
+
       onBeforeExport: function (oEvt) {
         var mExcelSettings = oEvt.getParameter("exportSettings");
 

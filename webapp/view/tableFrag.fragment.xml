@@ -23,8 +23,11 @@
         </smartFilterBar:controlConfiguration>
     </smartFilterBar:SmartFilterBar> -->
 
-    <smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="SmartTableRefApp_Explored" considerSelectionVariants="true" entitySet="planHSet" enableBasicSearch="true" basicSearchFieldName="Fertid" showClearButton="true">
+    <smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="SmartTableRefApp_Explored" considerSelectionVariants="true" entitySet="planHSet" enableBasicSearch="true" basicSearchFieldName="Porderid" showClearButton="true">
         <!-- layout data used to make the table growing but the filter bar fixed -->
+        <smartFilterBar:controlConfiguration>
+            <smartFilterBar:ControlConfiguration key="Porderid" label="생산계획코드" />
+        </smartFilterBar:controlConfiguration>
         <smartFilterBar:layoutData>
             <FlexItemData shrinkFactor="0" />
         </smartFilterBar:layoutData>
@@ -53,8 +56,9 @@
                     width="auto"
                     showDetailsButton="true"
                     app:useSmartToggle="true"
-                    showFullScreenButton="true" 
+                    showFullScreenButton="true"
                 >
+                    <Table selectionChange="onRowPress" mode="SingleSelectMaster" id="oTable" />
                     <smartTable:layoutData>
                         <FlexItemData growFactor="0" baseSize="0%" />
                     </smartTable:layoutData>
