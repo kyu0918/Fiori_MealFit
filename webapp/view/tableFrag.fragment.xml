@@ -67,20 +67,22 @@
             <VBox width="100%">
                 <l:VerticalLayout>
                     <l:content>
-                        <Panel headerText="생산통계" class="sapUiSmallMarginBottom">
-                            <HBox class="sapUiSmallMarginTop">
-                                <Label text="현재 생산량" design="Bold" />
-                            </HBox>
-                            <smartMicroChart:SmartHarveyBallMicroChart id="directSmartChartNeutral" entitySet="planHSet" />
+                        <Panel headerText="생산통계" class="sapUiSmallMarginBottom" headerLevel="H4" toggle="handleToggle">
+                            <content>
+                                <HBox class="sapUiSmallMarginTop">
+                                    <Label text="현재 생산량" design="Bold" />
+                                </HBox>
+                                <smartMicroChart:SmartHarveyBallMicroChart id="directSmartChartNeutral" entitySet="planHSet" />
 
-                            <HBox class="sapUiSmallMarginTop">
-                                <Label text="불량률" design="Bold" />
-                            </HBox>
-                            <smartMicroChart:SmartRadialMicroChart id="directSmartChartNegative" entitySet="planHSet">
-                                <smartMicroChart:customData>
-                                    <core:CustomData key="chartQualifier" value="DonutChartQualifierPercent" />
-                                </smartMicroChart:customData>
-                            </smartMicroChart:SmartRadialMicroChart>
+                                <HBox class="sapUiSmallMarginTop">
+                                    <Label text="불량률" design="Bold" />
+                                </HBox>
+                                <smartMicroChart:SmartRadialMicroChart id="directSmartChartNegative" entitySet="planHSet">
+                                    <smartMicroChart:customData>
+                                        <core:CustomData key="chartQualifier" value="DonutChartQualifierPercent" />
+                                    </smartMicroChart:customData>
+                                </smartMicroChart:SmartRadialMicroChart>
+                            </content>
                         </Panel>
                     </l:content>
                 </l:VerticalLayout>

@@ -17,6 +17,8 @@ sap.ui.define(
 
         var oView = this.getView();
         oView.setModel(oModel);
+
+        this.oRouter = this.getOwnerComponent().getRouter();
       },
 
       onRowPress: function() {
@@ -48,6 +50,12 @@ sap.ui.define(
 
             }
         })
+
+        var productPath = oEvent.getSource().getBindingContext("products").getPath(),
+				product = productPath.split("/").slice(-1).pop(),
+				oNextUIState;
+
+
 
       },
 
