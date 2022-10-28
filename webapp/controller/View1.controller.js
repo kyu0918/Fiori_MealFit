@@ -30,26 +30,26 @@ sap.ui.define(
             Porderid: oSelectedRow.Porderid
         });
 
-        var aFilter=[];
-        aFilter.push(
-            new Filter('Porderid',"EQ", oSelectedRow.Porderid)
-        )
+        // var aFilter=[];
+        // aFilter.push(
+        //     new Filter('Porderid',"EQ", oSelectedRow.Porderid)
+        // )
 
-        oModel.read(sCreateKey, {
-            filters:aFilter,
-            success: function(data) { 
-                var aplanISet = data;
-                oItemTable.setModel( new JSONModel(aplanISet) , 'planISet' );
-                oItemTable
-                    .getBinding('rows')
-                    .filter(
-                        aFilter
-                    )
-            }.bind(this),
-            error: function() {
+        // oModel.read(sCreateKey, {
+        //     filters:aFilter,
+        //     success: function(data) { 
+        //         var aplanISet = data;
+        //         oItemTable.setModel( new JSONModel(aplanISet) , 'planISet' );
+        //         oItemTable
+        //             .getBinding('rows')
+        //             .filter(
+        //                 aFilter
+        //             )
+        //     }.bind(this),
+        //     error: function() {
 
-            }
-        })
+        //     }
+        // })
 
         var productPath = oEvent.getSource().getBindingContext("products").getPath(),
 				product = productPath.split("/").slice(-1).pop(),
